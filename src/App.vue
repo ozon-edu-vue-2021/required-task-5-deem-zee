@@ -1,15 +1,34 @@
 <template>
   <div id="app">
+    <app-header></app-header>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 
+
+import header from './components/header.vue';
+import { mapGetters} from './store/store';
+import {store} from './store/store.js' 
+
 export default {
   name: "App",
   components: {
-    Form,
+
+    'app-header': header,
   },
+  methods: {
+    this.$store.dispatch('GET_PRODUCTS')
+  },
+  mounted() {
+    this.GET_PRODUCTS();
+  },
+  computed: {
+    ...mapGetters([
+      'PRODUCTS'
+    ])
+  }
 };
 </script>
 
