@@ -9,8 +9,8 @@
 
 
 import header from './components/header.vue';
-import { mapGetters} from './store/store';
-import {store} from './store/store.js' 
+import {mapActions, mapGetters} from './store/store.js';
+
 
 export default {
   name: "App",
@@ -19,12 +19,14 @@ export default {
     'app-header': header,
   },
   methods: {
-    this.$store.dispatch('GET_PRODUCTS')
+    ...mapActions([
+      'GET_PRODUCTS'
+    ])
   },
   mounted() {
     this.GET_PRODUCTS();
   },
-  computed: {
+  created: {
     ...mapGetters([
       'PRODUCTS'
     ])

@@ -2,11 +2,11 @@
     <div id="product-list">
         <h2>{{title}}</h2>
         <ul>
-            <!-- <li v-for="product in products" v-bind:key="product.id">
+            <li v-for="product in products" v-bind:key="product.id">
                 <p>{{product.dish}}</p>
                 <p>{{product.description}}</p>
                 <p>{{product.price}}</p>
-            </li> -->
+            </li>
         </ul>
     </div>
 </template>
@@ -19,9 +19,10 @@ export default {
         }
     },
     computed: {
-        // products() {
-        //     return this.$store.state.products;
-        // }
+        products() {
+            console.log(this.$store.state.products[0])
+            return this.$store.state.products;
+        }
     }
 }
 </script>
