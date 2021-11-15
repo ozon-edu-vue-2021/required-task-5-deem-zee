@@ -6,15 +6,14 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state: {
-        products: []
+        products: [],
     },
     actions: {
         GET_PRODUCTS({commit}) {
             return axios('https://random-data-api.com/api/food/random_food?size=30', {
-                method: 'GET'
-            })
-            .then((products) =>{
-                commit('SET_PRODUCTS', products);
+                method: "GET",
+            }).then((products) =>{
+                commit("SET_PRODUCTS", products.data);
                 return products;
             })
         }

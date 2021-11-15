@@ -5,7 +5,6 @@
             <li v-for="product in products" v-bind:key="product.id">
                 <p>{{product.dish}}</p>
                 <p>{{product.description}}</p>
-                <p>{{product.price}}</p>
             </li>
         </ul>
     </div>
@@ -20,7 +19,6 @@ export default {
     },
     computed: {
         products() {
-            console.log(this.$store.state.products[0])
             return this.$store.state.products;
         }
     }

@@ -9,13 +9,12 @@
 
 
 import header from './components/header.vue';
-import {mapActions, mapGetters} from './store/store.js';
+import {mapActions, mapGetters} from "vuex";
 
 
 export default {
   name: "App",
   components: {
-
     'app-header': header,
   },
   methods: {
@@ -26,8 +25,8 @@ export default {
   mounted() {
     this.GET_PRODUCTS();
   },
-  created: {
-    ...mapGetters([
+  computed: {
+      ...mapGetters([
       'PRODUCTS'
     ])
   }
