@@ -29,7 +29,6 @@ export const store = new Vuex.Store({
         },
 
 
-
     },
     mutations: {
         setProducts(state, products) {
@@ -38,8 +37,7 @@ export const store = new Vuex.Store({
         
         pushProductToCart(state, cartItem) {
             state.cart.push(cartItem)
-        }
-
+        },
 
     },
     getters: {
@@ -63,7 +61,14 @@ export const store = new Vuex.Store({
                 total += product.price;
             })
             return total;
-        }
+        },
+        checkOut(state, getters) {
+            let summarize = '';
+            getters.cartProducts.forEach(product => {
+                summarize += product.dish +'\n';
+            })
+            return summarize;
+        },
     }
 
 });

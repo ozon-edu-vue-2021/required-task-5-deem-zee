@@ -6,8 +6,10 @@
                 <h3>{{product.dish}}</h3>
                 <p>{{product.description}}</p>
                 <p>Цена: {{product.price}} &#8381;</p>
+                
             </li>
             <p>Общая стоимость: {{total}} &#8381;</p>
+            <button @click="checkOut">Оформить</button>
         </ul>
     </div>
 </template>
@@ -18,10 +20,15 @@ export default {
     computed: {
         cart() {
            return this.$store.getters.cartProducts
-    },
+        },
         total() {
             return this.$store.getters.cartTotal
-        }
+        },
+    },
+    methods: {
+        checkOut() {
+            alert(this.$store.getters.checkOut)
+        }   
     }
 }
 </script>
