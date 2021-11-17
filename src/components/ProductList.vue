@@ -1,25 +1,34 @@
 <template>
     <div id="product-list">
-        <h2>{{title}}</h2>
+        <h2>Product List</h2>
         <ul>
-            <li v-for="product in products" v-bind:key="product.id">
-                <p>{{product.dish}}</p>
+            <li v-for="(product, index) in products" v-bind:key="index">
+                <h3>{{product.dish}}</h3>
                 <p>{{product.description}}</p>
+                <p>Цена: {{product.price}} &#8381;</p>
+                <button @click="addProductToCart(product)">В корзину</button>
             </li>
         </ul>
     </div>
 </template>
 
 <script>
+
+import {store} from "../store/store"
+
 export default {
-    data() {
-        return {
-            title: 'Товары'
-        }
-    },
+
     computed: {
         products() {
-            return this.$store.state.products;
+            return store.getters.availableProducts
+        }
+    },
+    created() {
+       store.dispatch('fetchProducts');
+    },
+    methods: {
+         addProductToCart(product) {
+           this.$store.dispatch('addProductToCart', product)
         }
     }
 }
@@ -39,5 +48,20 @@ li{
     border: 1px solid black;
     display: block;
     margin: 10px;
+}
+button {
+    border: 1px solid white;
+    border-radius: 5px;
+    margin: 5px;
+    background: rgb(15, 224, 154);
+    height: 30px;
+    cursor: pointer;
+}
+p{
+    width: 45%;
+    /* text-align: center; */
+    margin:10px 25%;
+    overflow: hidden;
+    height: 60px;
 }
 </style>
