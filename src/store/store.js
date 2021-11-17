@@ -48,8 +48,8 @@ export const store = new Vuex.Store({
         },
 
         cartProducts(state) {
-            return state.cart.map(cartItem => {
-                const product = state.products.find(product => product.id === cartItem.id)
+            return state.cart.map(
+                product => {
                 return {
                     dish: product.dish,
                     price: product.price,
