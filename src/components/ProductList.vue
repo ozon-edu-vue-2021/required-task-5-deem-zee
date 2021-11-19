@@ -6,7 +6,9 @@
                 <h3>{{product.dish}}</h3>
                 <p>{{product.description}}</p>
                 <p>Цена: {{product.price}} &#8381;</p>
+                <p>Кол-во:{{product.quantity}} <button>+</button><button>-</button></p>
                 <button @click="addProductToCart(product)">В корзину</button>
+                <button @click="addProductToFav(product)">В избранное</button>
             </li>
         </ul>
     </div>
@@ -28,6 +30,9 @@ export default {
     methods: {
          addProductToCart(product) {
            this.$store.dispatch('addProductToCart', product);
+        },
+         addProductToFav(product) {
+           this.$store.dispatch('addProductToFav', product);
         }
     }
 }
@@ -64,5 +69,8 @@ p{
     overflow: hidden;
     height: 60px;
 }
+img {
 
+    transform: scale(.4);
+}
 </style>

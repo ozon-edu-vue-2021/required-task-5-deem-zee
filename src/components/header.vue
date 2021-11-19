@@ -3,6 +3,7 @@
         <ul>
             <li><router-link to="/" exact>Product List</router-link></li>
             <li><router-link to="/cart" exact>Cart</router-link></li>
+            <li><router-link to="/fav" exact>Favourites</router-link></li>
         </ul>
     </nav>
 </template>

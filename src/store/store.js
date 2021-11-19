@@ -9,6 +9,7 @@ export const store = new Vuex.Store({
     state: {
         products: [],
         cart: [],
+        fav: [],
     },
     actions: {
         fetchProducts({commit}) {
@@ -18,6 +19,7 @@ export const store = new Vuex.Store({
                 commit("setProducts", products.data);
                 for(let product of products.data) {
                    product.price = Math.floor(getRandomArbitrary(50, 200));
+                   product.quantity = 0;
                 }
 
                 return products;
@@ -27,6 +29,10 @@ export const store = new Vuex.Store({
         addProductToCart(context, product) {
             context.commit('pushProductToCart', product)
         },
+
+        addProductToFav(context, product) {
+            context.commit('pushProductToFav', product)
+        }
 
 
 
@@ -40,7 +46,9 @@ export const store = new Vuex.Store({
             state.cart.push(cartItem)
         },
 
-
+        pushProductToFav(state,favItem) {
+            state.fav.push(favItem);
+        }
 
     },
     getters: {
@@ -72,6 +80,16 @@ export const store = new Vuex.Store({
             })
             return summarize;
         },
+        favProducts(state) {
+            return state.fav.map(
+                product => {
+                return {
+                    dish: product.dish,
+                    price: product.price,
+                    description: product.description,
+                }
+            })
+        }
     }
 
 });
