@@ -29,6 +29,7 @@ export const store = new Vuex.Store({
         },
 
 
+
     },
     mutations: {
         setProducts(state, products) {
@@ -38,6 +39,8 @@ export const store = new Vuex.Store({
         pushProductToCart(state, cartItem) {
             state.cart.push(cartItem)
         },
+
+
 
     },
     getters: {

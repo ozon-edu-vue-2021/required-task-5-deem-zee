@@ -17,7 +17,6 @@
 import {store} from "../store/store"
 
 export default {
-
     computed: {
         products() {
             return store.getters.availableProducts
@@ -49,6 +48,7 @@ li{
     display: block;
     margin: 10px;
 }
+
 button {
     border: 1px solid white;
     border-radius: 5px;
@@ -64,4 +64,5 @@ p{
     overflow: hidden;
     height: 60px;
 }
+
 </style>
