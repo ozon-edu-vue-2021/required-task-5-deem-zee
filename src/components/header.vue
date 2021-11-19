@@ -1,9 +1,9 @@
 <template>
     <nav>
         <ul>
-            <li><router-link to="/" exact>Product List</router-link></li>
-            <li><router-link to="/cart" exact>Cart</router-link></li>
-            <li><router-link to="/fav" exact>Favourites</router-link></li>
+            <li><router-link to="/" exact>Товары</router-link></li>
+            <li><router-link to="/cart" exact>Корзина</router-link></li>
+            <li><router-link to="/fav" exact>Избранное</router-link></li>
         </ul>
     </nav>
 </template>
